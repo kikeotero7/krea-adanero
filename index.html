@@ -163,6 +163,12 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .theme-pick button{height:30px;padding:0 12px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-size:12.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
 .theme-pick button[aria-pressed="true"]{background:var(--surface);color:var(--fg);box-shadow:var(--shadow)}
 @keyframes spin{to{transform:rotate(360deg)}}
+.bp-fill,.bp-bg{overflow:hidden}
+.pano-track{position:absolute;top:0;left:0;height:100%;display:flex;width:max-content;animation:pano360 80s linear infinite;will-change:transform}
+.pano-track span{display:block;flex:none;height:100%;aspect-ratio:1700/679;background:var(--pano) center/cover no-repeat}
+.pano-track span.flip{transform:scaleX(-1)}
+@keyframes pano360{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.pano-track{animation:none}}
 @media (max-width:900px){.cover-main{grid-template-columns:minmax(0,1fr);gap:28px;padding-top:0}.cover-visual{order:-1}.cover-logo{aspect-ratio:4/3.3;max-width:none;padding:16px;gap:16px}.cover-logo .mark-svg{width:120px}.brandpanel .deco{width:min(96%,340px);height:auto;aspect-ratio:1}}
 
 /* ---------- Acceso ---------- */
@@ -1637,7 +1643,8 @@ function render(){applyTheme();if(!S.logged){root.innerHTML=loginHTML();return}r
 
 function themePick(){return `<div class="theme-pick" role="group" aria-label="Apariencia"><button type="button" data-act="setTheme" data-t="dark" aria-pressed="${isDark()}">${ic("moon",14)} Oscura</button><button type="button" data-act="setTheme" data-t="light" aria-pressed="${!isDark()}">${ic("sun",14)} Clara</button></div>`}
 
-const panelBg=()=>`<div class="bp-fill" style="background-image:url(${IMG.gymwide})"></div><div class="bp-bg" style="background-image:url(${IMG.gymwide})"></div><div class="bp-veil"></div>`;
+const panoTrack=()=>`<div class="pano-track"><span></span><span class="flip"></span><span></span><span class="flip"></span></div>`;
+const panelBg=()=>`<div class="bp-fill" style="--pano:url(${IMG.gymwide})">${panoTrack()}</div><div class="bp-bg" style="--pano:url(${IMG.gymwide})">${panoTrack()}</div><div class="bp-veil"></div>`;
 const ringDeco=()=>`<svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" fill="none" stroke="var(--fg)" stroke-opacity=".35" stroke-width="1"/><circle cx="100" cy="100" r="96" fill="none" stroke="var(--brand)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="110 494"/><circle cx="100" cy="100" r="80" fill="none" stroke="var(--fg)" stroke-opacity=".55" stroke-width="1.1" stroke-dasharray="2.5 5"/></svg>`;
 const logoLockup=(w)=>`${mark(w)}<div class="wm xl"><b>DAVID ADANERO</b><span>PERSONAL TRAINER</span></div>`;
 function coverHTML(){
