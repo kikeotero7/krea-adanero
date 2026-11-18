@@ -1667,7 +1667,7 @@ function coverHTML(){
       </div>
       <div class="cover-visual"><div class="brandpanel cover-logo" role="img" aria-label="David Adanero Personal Trainer">${panelBg()}${ringDeco()}${logoLockup(200)}</div></div>
     </section>
-    <footer class="cover-foot"><span>David Adanero · Personal Trainer</span><span>© ${TODAY.getFullYear()} KREA Digital Studio · Diseño y desarrollo</span></footer>
+    <footer class="cover-foot"><span>David Adanero · Personal Trainer</span><span>© ${TODAY.getFullYear()} KREAVANCE · Diseño y desarrollo</span></footer>
   </div>`;
 }
 
@@ -1762,7 +1762,7 @@ function loginHTML(){
       <div class="row" style="justify-content:space-between"><span class="muted" style="font-size:12.5px">Apariencia</span>
         <div class="seg" role="group" aria-label="Apariencia"><button type="button" data-act="setTheme" data-t="dark" aria-pressed="${isDark()}">${ic("moon",14)} Oscura</button><button type="button" data-act="setTheme" data-t="light" aria-pressed="${!isDark()}">${ic("sun",14)} Clara</button></div></div>
     </form></section>
-  </div><p class="login-foot">© ${TODAY.getFullYear()} KREA Digital Studio · Diseño y desarrollo</p></div>`;
+  </div><p class="login-foot">© ${TODAY.getFullYear()} KREAVANCE · Diseño y desarrollo</p></div>`;
 }
 
 function shellHTML(){
@@ -1788,7 +1788,7 @@ function shellHTML(){
       <button class="btn icon" data-act="toggleTheme" aria-label="Cambiar apariencia">${ic(isDark()?"sun":"moon")}</button>
     </header>
     <main class="view" id="view"></main>
-    <footer class="app-foot">© ${TODAY.getFullYear()} <b>KREA Digital Studio</b> · Diseño y desarrollo</footer>
+    <footer class="app-foot">© ${TODAY.getFullYear()} <b>KREAVANCE</b> · Diseño y desarrollo</footer>
   </div>
   <nav class="bnav" aria-label="Navegación inferior">
     ${BNAV[S.role].map(v=>{const n=navAll().find(x=>x[0]===v);return `<button data-act="go" data-v="${v}" data-nav="${v}">${ic(n[2])}<span>${n[1].replace("Reservar cita","Reservar").replace("Mi progreso","Progreso")}</span></button>`}).join("")}

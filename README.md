@@ -1,2 +1,2 @@
 # krea-adanero-app
-App David Adanero · KREA Digital Studio
+App David Adanero · KREAVANCE
